@@ -5,13 +5,20 @@ solution "contractor"
     targetdir "bin/%{cfg.buildcfg}"
     location "build"
 
-    configurations {"debug", "release"}
-    configuration "debug"
+    configurations {"debug-simple", "debug-clever", "debug-clever-lazy", "debug", "release"}
+    filter "configurations:debug*"
         defines {"DEBUG"}
         flags {"Symbols"}
     configuration "release"
         defines {"NDEBUG"}
         optimize "On"
+
+    configuration "debug-simple"
+        defines {"CONTRACTOR_DEFAULT_PROVER=contractor::prove_simple"}
+    configuration "debug-clever"
+        defines {"CONTRACTOR_DEFAULT_PROVER=contractor::prove_clever"}
+    configuration "debug-clever-lazy"
+        defines {"CONTRACTOR_DEFAULT_PROVER=contractor::prove_clever_lazy"}
 
     configuration "gmake"
         buildoptions { "-std=c++11" }
