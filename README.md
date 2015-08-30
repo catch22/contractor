@@ -15,6 +15,7 @@ Proving one of the new cyclic inequalities derived in our paper is as simple as 
 
 int main() {
     try {
+        // Prove ABC + BCD + CDE + DEA + EAB >= AB + BC + CD + DE + EA + ABCDE
         CONTRACTOR_PROVE(5, ("ABC", "BCD", "CDE", "DEA", "EAB"),
                          ("AB", "BC", "CD", "DE", "EA", "ABCDE"));
         std::cout << "Success!" << std::endl;
@@ -22,6 +23,7 @@ int main() {
         std::cerr << "Error: " << e.what() << std::endl;
     }
 }
+
 ~~~
 
 
@@ -45,7 +47,7 @@ If you find `contractor` useful for your research, please consider citing our pa
 @article{justamoment,
   author       = {Bao, N. and Nezami, S. and Ooguri, H. and Stoica, B. and Sully, J. and Walter, M.},
   title        = {{The Holographic Entropy Cone}},
-  year         = {2014},
+  year         = {2015},
   howpublished = {\href{http://arxiv.org/abs/1505.07839}{arXiv:1505.07839}},
   note         = {Software available at \url{https://github.com/catch22/contractor/}.},
 }
