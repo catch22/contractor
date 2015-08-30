@@ -36,7 +36,7 @@ template <size_t N> struct subsystem {
         return s;
     }
 
-    bitset<N> bitset;
+    contractor::bitset<N> bitset;
 };
 
 template <size_t N>

@@ -1,4 +1,4 @@
-The Holographic Contractor
+The Holographic Contractor [![Build Status](https://travis-ci.org/catch22/contractor.svg)](https://travis-ci.org/catch22/contractor)
 ==========================
 
 In a [recent paper](http://arxiv.org/abs/1505.07839), we have described a combinatorial method for proving holographic entropy inequalities based on finding contractions of the hypercube.
@@ -32,7 +32,7 @@ To compile `contractor` and run the above example, install [premake5](https://pr
 
 ~~~bash
 premake5 gmake
-make config=release example && bin/release/example
+make -C build config=release example && bin/release/example
 ~~~
 
 

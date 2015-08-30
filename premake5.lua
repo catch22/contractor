@@ -3,6 +3,7 @@ solution "contractor"
     warnings "Extra"
     includedirs {"."}
     targetdir "bin/%{cfg.buildcfg}"
+    location "build"
 
     configurations {"debug", "release"}
     configuration "debug"
@@ -14,6 +15,7 @@ solution "contractor"
 
     configuration "gmake"
         buildoptions { "-std=c++11" }
+        targetextension ""
 
 project "example"
     kind "ConsoleApp"
