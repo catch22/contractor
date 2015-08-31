@@ -148,7 +148,7 @@ endif
 OBJECTS := \
 	$(OBJDIR)/main.o \
 	$(OBJDIR)/test_cyclic.o \
-	$(OBJDIR)/test_provers.o \
+	$(OBJDIR)/test_prover.o \
 
 RESOURCES := \
 
@@ -212,7 +212,7 @@ $(OBJDIR)/main.o: ../test/main.cpp
 $(OBJDIR)/test_cyclic.o: ../test/test_cyclic.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/test_provers.o: ../test/test_provers.cpp
+$(OBJDIR)/test_prover.o: ../test/test_prover.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 
