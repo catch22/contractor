@@ -5,7 +5,7 @@ solution "contractor"
     targetdir "bin/%{cfg.buildcfg}"
     location "build"
 
-    configurations {"debug-simple", "debug-clever", "debug-clever-lazy", "debug", "release"}
+    configurations {"debug", "debug-simple", "debug-clever", "debug-clever-lazy", "release"}
     filter "configurations:debug*"
         defines {"DEBUG"}
         flags {"Symbols"}

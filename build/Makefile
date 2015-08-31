@@ -3,13 +3,17 @@
 .NOTPARALLEL:
 
 ifndef config
-  config=debug-simple
+  config=debug
 endif
 
 ifndef verbose
   SILENT = @
 endif
 
+ifeq ($(config),debug)
+  example_config = debug
+  test_config = debug
+endif
 ifeq ($(config),debug-simple)
   example_config = debug-simple
   test_config = debug-simple
@@ -21,10 +25,6 @@ endif
 ifeq ($(config),debug-clever-lazy)
   example_config = debug-clever-lazy
   test_config = debug-clever-lazy
-endif
-ifeq ($(config),debug)
-  example_config = debug
-  test_config = debug
 endif
 ifeq ($(config),release)
   example_config = release
@@ -57,10 +57,10 @@ help:
 	@echo "Usage: make [config=name] [target]"
 	@echo ""
 	@echo "CONFIGURATIONS:"
+	@echo "  debug"
 	@echo "  debug-simple"
 	@echo "  debug-clever"
 	@echo "  debug-clever-lazy"
-	@echo "  debug"
 	@echo "  release"
 	@echo ""
 	@echo "TARGETS:"
