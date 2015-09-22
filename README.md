@@ -44,12 +44,16 @@ Attribution
 If you find `contractor` useful for your research, please consider citing our paper:
 
 ~~~bibtex
-@article{justamoment,
-  author       = {Bao, N. and Nezami, S. and Ooguri, H. and Stoica, B. and Sully, J. and Walter, M.},
-  title        = {{The Holographic Entropy Cone}},
-  year         = {2015},
-  howpublished = {\href{http://arxiv.org/abs/1505.07839}{arXiv:1505.07839}},
-  note         = {Software available at \url{https://github.com/catch22/contractor/}.},
+@article{contractor,
+  author  = {Bao, N. and Nezami, S. and Ooguri, H. and Stoica, B. and Sully, J. and Walter, M.},
+  title   = {The holographic entropy cone},
+  year    = {2015},
+  journal = {Journal of High Energy Physics},
+  volume  = {09},
+  pages   = {130},
+  eprint  = {1505.07839},
+  doi     = {10.1007/JHEP09(2015)130},
+  note    = {Software available at \url{https://github.com/catch22/contractor/}.},
 }
 ~~~
 
