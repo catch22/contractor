@@ -24,6 +24,9 @@ solution "contractor"
         buildoptions { "-std=c++11" }
         targetextension ""
 
+    filter "system:macosx"
+        toolset "clang"
+
 project "example"
     kind "ConsoleApp"
     language "C++"
