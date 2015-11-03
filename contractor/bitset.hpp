@@ -60,8 +60,6 @@ template <size_t B> struct bitsets {
     }
 
     struct iterator {
-        iterator() : m_done(false) {}
-
         bitset<B> operator*() const { return m_bs; }
 
         void operator++() {
@@ -86,7 +84,7 @@ template <size_t B> struct bitsets {
         }
 
         bitset<B> m_bs;
-        bool m_done;
+        bool m_done{false};
     };
 };
 }
