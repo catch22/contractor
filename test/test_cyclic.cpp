@@ -39,7 +39,7 @@ template <size_t N, size_t LBody, size_t RBody> void prove_cyclic() {
     inequality<N, N, N + 1> ieq = {lhs, rhs};
 
     // test our expectations
-    bool expect_success = LBody > RBody && LBody + RBody <= N;
+    constexpr bool expect_success = LBody > RBody && LBody + RBody <= N;
     if(expect_success)
         CONTRACTOR_DEFAULT_PROVER(ieq);
     else

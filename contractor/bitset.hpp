@@ -79,7 +79,7 @@ template <size_t B> struct bitsets {
             m_done = !m_bs.count();
         }
 
-        bool operator!=(const iterator &rhs) {
+        bool operator!=(const iterator &rhs) const {
             return m_bs != rhs.m_bs || m_done != rhs.m_done;
         }
 

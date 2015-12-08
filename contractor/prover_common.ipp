@@ -11,7 +11,7 @@ template <typename Inequality> struct occurrence_table {
         L = Inequality::num_lhs,
         R = Inequality::num_rhs
     };
-    occurrence_table(const Inequality &ieq) {
+    explicit occurrence_table(const Inequality &ieq) {
         // set nontrivial occurrence vectors for left-hand side
         for(size_t n = 0; n < N; ++n)
             for(size_t l = 0; l < L; ++l)
@@ -97,7 +97,7 @@ template <typename Inequality> struct partial_function {
 
     // initialize by mapping occurence vectors onto each other (and leaving all
     // other function values undefined)
-    partial_function(const Inequality &ieq) {
+    explicit partial_function(const Inequality &ieq) {
         enum { N = Inequality::num_parties };
         const occurrence_table<Inequality> occ(ieq);
 
