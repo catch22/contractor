@@ -2,8 +2,6 @@ language: cpp
 compiler: g++
 
 env:
-  global:
-    - CXX=g++-4.8
   matrix:
     - CMAKE_BUILD_TYPE=Debug  CONTRACTOR_DEFAULT_PROVER=contractor::prove_simple
     - CMAKE_BUILD_TYPE=Debug  CONTRACTOR_DEFAULT_PROVER=contractor::prove_clever
@@ -18,7 +16,8 @@ before_install:
 
 install:
   - sudo apt-get install -qq g++-4.8
+  - export CXX=g++-4.8
   - wget --no-check-certificate http://cmake.org/files/v3.4/cmake-3.4.3-Linux-x86_64.tar.gz
-  - tar -xvzf cmake-3.4.3-Linux-x86_64.tar.gz
+  - tar -xzf cmake-3.4.3-Linux-x86_64.tar.gz
 
 script: mkdir -p build && cd build && ../cmake-3.4.3-Linux-x86_64/bin/cmake .. -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DCONTRACTOR_DEFAULT_PROVER=${CONTRACTOR_DEFAULT_PROVER} && make && ./example && make test
