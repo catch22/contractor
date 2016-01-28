@@ -5,12 +5,12 @@ env:
   global:
     - CXX=g++-4.8
   matrix:
-    - CMAKE_BUILD_TYPE=Debug
-    - CMAKE_BUILD_TYPE=Release
-  matrix:
-    - CONTRACTOR_DEFAULT_PROVER=contractor::prove_simple
-    - CONTRACTOR_DEFAULT_PROVER=contractor::prove_clever
-    - CONTRACTOR_DEFAULT_PROVER=contractor::prove_clever_lazy
+    - CMAKE_BUILD_TYPE=Debug  CONTRACTOR_DEFAULT_PROVER=contractor::prove_simple
+    - CMAKE_BUILD_TYPE=Debug  CONTRACTOR_DEFAULT_PROVER=contractor::prove_clever
+    - CMAKE_BUILD_TYPE=Debug  CONTRACTOR_DEFAULT_PROVER=contractor::prove_clever_lazy
+    - CMAKE_BUILD_TYPE=Release CONTRACTOR_DEFAULT_PROVER=contractor::prove_simple
+    - CMAKE_BUILD_TYPE=Release CONTRACTOR_DEFAULT_PROVER=contractor::prove_clever
+    - CMAKE_BUILD_TYPE=Release CONTRACTOR_DEFAULT_PROVER=contractor::prove_clever_lazy
 
 before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
