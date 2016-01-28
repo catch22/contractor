@@ -2,12 +2,15 @@ language: cpp
 compiler: g++
 
 env:
+  global:
+    - CXX=g++-4.8
   matrix:
-    - CONFIG=debug
-    - CONFIG=debug-simple
-    - CONFIG=debug-clever
-    - CONFIG=debug-clever-lazy
-    - CONFIG=release
+    - CMAKE_BUILD_TYPE=Debug
+    - CMAKE_BUILD_TYPE=Release
+  matrix:
+    - CONTRACTOR_DEFAULT_PROVER=contractor::prove_simple
+    - CONTRACTOR_DEFAULT_PROVER=contractor::prove_clever
+    - CONTRACTOR_DEFAULT_PROVER=contractor::prove_clever_lazy
 
 before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
@@ -15,6 +18,5 @@ before_install:
 
 install:
   - sudo apt-get install -qq g++-4.8
-  - export CXX="g++-4.8"
 
-script: make -C build config=${CONFIG} && bin/${CONFIG}/example && bin/${CONFIG}/test
+script: mkdir -p build && cd build && cmake .. -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DCONTRACTOR_DEFAULT_PROVER=${CONTRACTOR_DEFAULT_PROVER} && make && ./example && make test
