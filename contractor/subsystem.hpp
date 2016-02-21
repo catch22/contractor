@@ -1,6 +1,4 @@
-#ifndef CONTRACTOR_SUBSYSTEM_HPP
-#define CONTRACTOR_SUBSYSTEM_HPP
-
+#pragma once
 #include "bitset.hpp"
 #include <iostream>
 
@@ -44,5 +42,3 @@ std::ostream &operator<<(std::ostream &os, const subsystem<N> &sub) {
     return os << sub.str();
 }
 }
-
-#endif

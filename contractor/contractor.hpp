@@ -1,5 +1,4 @@
-#ifndef CONTRACTOR_HPP
-#define CONTRACTOR_HPP
+#pragma once
 
 #ifndef CONTRACTOR_LOG
 #ifdef DEBUG
@@ -13,5 +12,3 @@
 #include "subsystem.hpp"
 #include "inequality.hpp"
 #include "prover.hpp"
-
-#endif

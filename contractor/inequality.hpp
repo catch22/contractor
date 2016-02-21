@@ -1,6 +1,4 @@
-#ifndef CONTRACTOR_INEQUALIY_HPP
-#define CONTRACTOR_INEQUALIY_HPP
-
+#pragma once
 #include <array>
 #include <iostream>
 #include "bitset.hpp"
@@ -95,5 +93,3 @@ std::ostream &operator<<(std::ostream &os,
 #define CONTRACTOR_IMPL_UNWRAP(...) __VA_ARGS__
 #define CONTRACTOR_IMPL_NUM_ARGS(...)                                          \
     int(sizeof((const char *[]){"", ##__VA_ARGS__}) / sizeof(const char *) - 1)
-
-#endif

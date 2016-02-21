@@ -1,6 +1,4 @@
-#ifndef CONTRACTOR_PROVER_HPP
-#define CONTRACTOR_PROVER_HPP
-
+#pragma once
 #include "prover_common.ipp"
 #include "prover_simple.ipp"
 #include "prover_clever.ipp"
@@ -27,5 +25,3 @@
             CONTRACTOR_WEIGHTED_IEQ(n, lhs, rhs, lhs_weights, rhs_weights);    \
         CONTRACTOR_DEFAULT_PROVER(ieq);                                        \
     })()
-
-#endif

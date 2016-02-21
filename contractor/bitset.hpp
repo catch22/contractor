@@ -1,6 +1,4 @@
-#ifndef CONTRACTOR_BITSET_HPP
-#define CONTRACTOR_BITSET_HPP
-
+#pragma once
 #include <bitset>
 #include <string>
 #include <array>
@@ -88,5 +86,3 @@ template <size_t B> struct bitsets {
     };
 };
 }
-
-#endif
