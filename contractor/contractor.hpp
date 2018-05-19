@@ -9,6 +9,6 @@
 #endif
 
 #include "bitset.hpp"
-#include "subsystem.hpp"
 #include "inequality.hpp"
 #include "prover.hpp"
+#include "subsystem.hpp"

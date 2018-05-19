@@ -1,8 +1,9 @@
 #pragma once
 #include "prover_common.ipp"
-#include "prover_simple.ipp"
+
 #include "prover_clever.ipp"
 #include "prover_clever_lazy.ipp"
+#include "prover_simple.ipp"
 
 //////////////////////////////////////////////////////////////////////////////
 // default prover
@@ -15,13 +16,12 @@
 // CONTRACTOR_PROVE, CONTRACTOR_PROVE_WEIGHTED - prove with default prover
 //////////////////////////////////////////////////////////////////////////////
 #define CONTRACTOR_PROVE(n, lhs, rhs)                                          \
-    ([] {                                                                      \
-        auto ieq = CONTRACTOR_IEQ(n, lhs, rhs);                                \
-        CONTRACTOR_DEFAULT_PROVER(ieq);                                        \
-    })()
+  ([] {                                                                        \
+    auto ieq = CONTRACTOR_IEQ(n, lhs, rhs);                                    \
+    CONTRACTOR_DEFAULT_PROVER(ieq);                                            \
+  })()
 #define CONTRACTOR_PROVE_WEIGHTED(n, lhs, rhs, lhs_weights, rhs_weights)       \
-    ([] {                                                                      \
-        auto ieq =                                                             \
-            CONTRACTOR_WEIGHTED_IEQ(n, lhs, rhs, lhs_weights, rhs_weights);    \
-        CONTRACTOR_DEFAULT_PROVER(ieq);                                        \
-    })()
+  ([] {                                                                        \
+    auto ieq = CONTRACTOR_WEIGHTED_IEQ(n, lhs, rhs, lhs_weights, rhs_weights); \
+    CONTRACTOR_DEFAULT_PROVER(ieq);                                            \
+  })()
