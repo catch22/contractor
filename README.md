@@ -1,4 +1,4 @@
-The Holographic Contractor [![Build Status](https://travis-ci.org/catch22/contractor.svg)](https://travis-ci.org/catch22/contractor)
+The Holographic Contractor [![Build Status](https://app.travis-ci.com/catch22/contractor.svg)](https://app.travis-ci.com/github/catch22/contractor)
 ==========================
 
 In a [recent paper](http://arxiv.org/abs/1505.07839), we have described a combinatorial method for proving holographic entropy inequalities based on finding contractions of the hypercube.
