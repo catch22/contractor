@@ -4,7 +4,8 @@ namespace contractor {
 // prove_clever_lazy -- same as prove_clever, but without the precomputation
 // step (instead, compute the initial set of options just-in-time)
 //////////////////////////////////////////////////////////////////////////////
-template <typename Inequality> void prove_clever_lazy(const Inequality &ieq) {
+template <typename Inequality>
+function<Inequality> prove_clever_lazy(const Inequality &ieq) {
   using function_type = partial_function<Inequality>;
   using defined_entry = typename partial_function<Inequality>::defined_entry;
   using ys_all = typename partial_function<Inequality>::ys_all;
@@ -125,5 +126,6 @@ template <typename Inequality> void prove_clever_lazy(const Inequality &ieq) {
   // verify one last time that we have indeed constructed a contraction
   if (!is_contraction(ieq, pfn.defined))
     throw std::runtime_error("internal error: constructed a non-contraction");
+  return pfn.defined;
 }
 } // namespace contractor

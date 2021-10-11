@@ -18,10 +18,12 @@
 #define CONTRACTOR_PROVE(n, lhs, rhs)                                          \
   ([] {                                                                        \
     auto ieq = CONTRACTOR_IEQ(n, lhs, rhs);                                    \
-    CONTRACTOR_DEFAULT_PROVER(ieq);                                            \
+    auto pfn = CONTRACTOR_DEFAULT_PROVER(ieq);                                 \
+    return pfn;                                                                \
   })()
 #define CONTRACTOR_PROVE_WEIGHTED(n, lhs, rhs, lhs_weights, rhs_weights)       \
   ([] {                                                                        \
     auto ieq = CONTRACTOR_WEIGHTED_IEQ(n, lhs, rhs, lhs_weights, rhs_weights); \
-    CONTRACTOR_DEFAULT_PROVER(ieq);                                            \
+    auto pfn = CONTRACTOR_DEFAULT_PROVER(ieq);                                 \
+    return pfn;                                                                \
   })()

@@ -116,4 +116,9 @@ template <typename Inequality> struct partial_function {
   std::vector<defined_entry> defined;
   std::vector<undefined_entry> undefined;
 };
+
+template <typename Inequality>
+using function =
+    std::vector<typename partial_function<Inequality>::defined_entry>;
+
 } // namespace contractor

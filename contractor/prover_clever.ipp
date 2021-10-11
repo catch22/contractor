@@ -4,7 +4,8 @@ namespace contractor {
 // prove_clever -- precompute all possible values for the unknown f(x)'s, then
 // update as we learn new function values (instead of recomputing each time)
 //////////////////////////////////////////////////////////////////////////////
-template <typename Inequality> void prove_clever(const Inequality &ieq) {
+template <typename Inequality>
+function<Inequality> prove_clever(const Inequality &ieq) {
   using function_type = partial_function<Inequality>;
   using defined_entry = typename partial_function<Inequality>::defined_entry;
   using ys_all = typename partial_function<Inequality>::ys_all;
@@ -115,5 +116,6 @@ template <typename Inequality> void prove_clever(const Inequality &ieq) {
   // verify one last time that we have indeed constructed a contraction
   if (!is_contraction(ieq, pfn.defined))
     throw std::runtime_error("internal error: constructed a non-contraction");
+  return pfn.defined;
 }
 } // namespace contractor
