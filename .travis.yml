@@ -21,3 +21,4 @@ install:
   - tar -xzf cmake-3.4.3-Linux-x86_64.tar.gz
 
 script: mkdir -p build && cd build && ../cmake-3.4.3-Linux-x86_64/bin/cmake .. -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DCONTRACTOR_DEFAULT_PROVER=${CONTRACTOR_DEFAULT_PROVER} && make && ./example && make test
+
