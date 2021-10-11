@@ -25,6 +25,11 @@ template <size_t B> struct bitset {
   std::bitset<B> impl;
 };
 
+template <size_t B>
+std::ostream &operator<<(std::ostream &os, const bitset<B> &bs) {
+  return os << bs.str_lsb_first();
+}
+
 //////////////////////////////////////////////////////////////////////////////
 // (weighted) hamming distance
 //////////////////////////////////////////////////////////////////////////////

@@ -31,19 +31,15 @@ template <typename Inequality> struct occurrence_table {
         if (x1 == x2 && y1 != y2) {
           CONTRACTOR_LOG("occurrence table contains two incompatible "
                          "assignments for x = "
-                         << x1.str_lsb_first()
-                         << ": f(x) = " << y1.str_lsb_first()
-                         << " vs. f(x) = " << y2.str_lsb_first());
+                         << x1 << ": f(x) = " << y1 << " vs. f(x) = " << y2);
           throw std::runtime_error("occurrence table inconsistent");
         }
 
         // not a contraction?
         if (ieq.hamming_rhs(y1, y2) > ieq.hamming_lhs(x1, x2)) {
           CONTRACTOR_LOG("occurrence table does not contract x1 = "
-                         << x1.str_lsb_first()
-                         << " vs x2 = " << x2.str_lsb_first()
-                         << ": f(x1) = " << y1.str_lsb_first()
-                         << " vs. f(x2) = " << y2.str_lsb_first());
+                         << x1 << " vs x2 = " << x2 << ": f(x1) = " << y1
+                         << " vs. f(x2) = " << y2);
           throw std::runtime_error("occurrence table is not a contraction");
         }
       }
@@ -63,10 +59,8 @@ bool is_contraction(const Inequality &ieq, const Function &fn) {
     for (auto f : fn) {
       if (ieq.hamming_rhs(e.y, f.y) > ieq.hamming_lhs(e.x, f.x)) {
         CONTRACTOR_LOG("function table does not contract x1 = "
-                       << e.x.str_lsb_first()
-                       << " vs x2 = " << f.x.str_lsb_first()
-                       << ": f(x1) = " << e.y.str_lsb_first()
-                       << " vs. f(x2) = " << f.y.str_lsb_first());
+                       << e.x << " vs x2 = " << f.x << ": f(x1) = " << e.y
+                       << " vs. f(x2) = " << f.y);
         return false;
       }
     }

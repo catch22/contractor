@@ -34,7 +34,7 @@ template <typename Inequality> void prove_clever(const Inequality &ieq) {
 
     // no extension?
     if (e.ys_options.empty()) {
-      CONTRACTOR_LOG("cannot extend initial data: x = " << e.x.str_lsb_first());
+      CONTRACTOR_LOG("cannot extend initial data: x = " << e.x);
       throw std::runtime_error("cannot extend initial data to a "
                                "contraction (before process has even "
                                "started)");
@@ -80,9 +80,8 @@ template <typename Inequality> void prove_clever(const Inequality &ieq) {
       new_entry = defined_entry{e.x, e.ys_options[0], annotation};
       pfn.defined.push_back(new_entry);
       pfn.undefined.erase(pfn.undefined.begin());
-      CONTRACTOR_LOG("    made a choice: x = " << new_entry.x.str_lsb_first()
-                                               << ", f(x) = "
-                                               << new_entry.y.str_lsb_first());
+      CONTRACTOR_LOG("    made a choice: x = " << new_entry.x
+                                               << ", f(x) = " << new_entry.y);
     }
 
     // update options for undefined function values
@@ -100,13 +99,12 @@ template <typename Inequality> void prove_clever(const Inequality &ieq) {
       // no extension?
       if (e.ys_options.empty()) {
         if (made_choices) {
-          CONTRACTOR_LOG(
-              "cannot extend further (got stuck): x = " << e.x.str_lsb_first());
+          CONTRACTOR_LOG("cannot extend further (got stuck): x = " << e.x);
           throw std::runtime_error("cannot extend further (got stuck)");
         } else {
           CONTRACTOR_LOG("cannot extend further (before making any "
                          "choices): x = "
-                         << e.x.str_lsb_first());
+                         << e.x);
           throw std::runtime_error(
               "cannot extend further (before making any choices)");
         }

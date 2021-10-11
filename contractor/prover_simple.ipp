@@ -48,13 +48,12 @@ template <typename Inequality> void prove_simple(const Inequality &ieq) {
       // no option?
       if (e.ys_options.empty()) {
         if (made_choices) {
-          CONTRACTOR_LOG(
-              "cannot extend further (got stuck): x = " << e.x.str_lsb_first());
+          CONTRACTOR_LOG("cannot extend further (got stuck): x = " << e.x);
           throw std::runtime_error("cannot extend further (got stuck)");
         } else {
           CONTRACTOR_LOG("cannot extend further (before making any "
                          "choices): x = "
-                         << e.x.str_lsb_first());
+                         << e.x);
           throw std::runtime_error(
               "cannot extend further (before making any choices)");
         }
@@ -84,9 +83,7 @@ template <typename Inequality> void prove_simple(const Inequality &ieq) {
     defined_entry f{e.x, e.ys_options[0], annotation};
     pfn.defined.push_back(f);
     pfn.undefined.erase(pfn.undefined.begin());
-    CONTRACTOR_LOG("    made a choice: x = " << f.x.str_lsb_first()
-                                             << ", f(x) = "
-                                             << f.y.str_lsb_first());
+    CONTRACTOR_LOG("    made a choice: x = " << f.x << ", f(x) = " << f.y);
   }
 
   // verify one last time that we have indeed constructed a contraction
